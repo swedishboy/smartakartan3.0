@@ -44,10 +44,10 @@ steps:
 - task: CopyFiles@2
   displayName: Copy js and css files
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)\SmartMap.Web\wwwroot'
+    SourceFolder: '$(System.DefaultWorkingDirectory)\Source\SmartMap.Web\wwwroot'
     Contents: |
       dist\*.*
-    TargetFolder: '$(Build.ArtifactStagingDirectory)\SmartMap.Web\wwwroot'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\Source\SmartMap.Web\wwwroot'
 
 - task: DotNetCoreCLI@2
   displayName: 'Build web project'
