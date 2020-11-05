@@ -28,12 +28,14 @@ steps:
     versionSpec: '13.x' # replace this value with the version that you need for your project
 
 - script: |
+    cd Source
     cd SmartMap.Web
     cd wwwroot
     npm install
   displayName: 'Npm install'
 
 - script: |
+    cd Source
     cd SmartMap.Web
     cd wwwroot
     npm run build
