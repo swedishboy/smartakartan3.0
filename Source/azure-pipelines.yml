@@ -67,9 +67,9 @@ steps:
 - task: AzureWebApp@1
   displayName: 'Deploy Azure Web App'
   inputs:
-    azureSubscription: 'Free Trial(2)(14c56626-93bb-458d-bf8e-c484646571b8)'
+    azureSubscription: 'ec7d5fa5-2253-42ce-8903-d896edb90cc2'
     appType: 'webAppLinux'
-    appName: 'rise-one'
+    appName: 'rise-circular'
     package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     runtimeStack: 'DOTNETCORE|3.1'
     startUpCommand: 'dotnet SmartMap.Web.dll'
