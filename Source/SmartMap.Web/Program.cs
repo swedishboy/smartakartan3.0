@@ -83,6 +83,6 @@ namespace SmartMap.Web
                     webBuilder.UseStartup<Startup>();
                 });
 
-        private static string GetKeyVaultEndpoint() => "https://sk-test-kv.vault.azure.net/";
+        private static string GetKeyVaultEndpoint() => "https://risekeys.vault.azure.net/";
     }
 }
