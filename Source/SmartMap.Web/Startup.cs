@@ -14,7 +14,7 @@ using SmartMap.Web.Routers;
 //using Elastic.Apm.AspNetCore;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.Rewrite;
-using SmartMap.Web.Routers;
+//using SmartMap.Web.Routers;
 using SmartMap.Web.Util;
 
 namespace SmartMap.Web
@@ -139,9 +139,9 @@ namespace SmartMap.Web
                 });
             }
 
-            app.UseRewriter(new RewriteOptions()
-                .AddRedirectToWwwPermanent()
-            );
+ //           app.UseRewriter(new RewriteOptions()
+ //               .AddRedirectToWwwPermanent()
+ //           );
 
             app.UseHttpsRedirection();
             app.UseRouting();

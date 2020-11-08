@@ -1,5 +1,4 @@
-# Smarta Kartan 3.0
-Go to [smartakartan.se](https://www.smartakartan.se/)
+# SK adaption project FENIX
 
 ### Tech Stack
 **Public User Site**
