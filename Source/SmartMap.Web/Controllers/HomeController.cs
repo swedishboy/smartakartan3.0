@@ -76,8 +76,8 @@ namespace SmartMap.Web.Controllers
         {
             Response.ContentType = "text/xml";
 
-            //var host = Request.Scheme + "://" + Request.Host;
-            var host = "https://www.smartakartan.se";
+            var host = Request.Scheme + "://" + Request.Host;
+            //var host = "https://rise-circular-domain.se";
             var cacheKey = "sk-sitemap";
 
             var model = await _cache.GetOrAddAsync(
@@ -91,6 +91,7 @@ namespace SmartMap.Web.Controllers
         private async Task<UrlViewModel> GetSiteMapXml(string host)
         {
             var model = new UrlViewModel();
+            /*
             var regions = await _regionRepository.GetAll();
 
             var languages = await _cmsApiProxy.GetLanguages();
@@ -123,7 +124,7 @@ namespace SmartMap.Web.Controllers
 
                 model.Urls.Add(new UrlViewModel.UrlItem { Url = url, LastUpdated = lastUpdated });
             }
-
+            */
             return model;
         }
 
