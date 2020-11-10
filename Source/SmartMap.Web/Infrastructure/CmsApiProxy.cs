@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 using Nest;
 using SmartMap.Web.Util;
 using SmartMap.Web.Models;
-using SmartMap.Web.Util;
+//using SmartMap.Web.Util;
 
 namespace SmartMap.Web.Infrastructure
 {
@@ -559,6 +559,7 @@ namespace SmartMap.Web.Infrastructure
         public IList<PageTypeCmsModel> Page_type { get; set; }
         public AdvancedCustomFieldCmsModel Acf { get; set; }
         public IList<AddressAndCoordinateCmsModel> Address_and_coordinate { get; set; }
+        public string Icon { get; set; }
         public IList<string> Taggar { get; set; }
         public IList<string> Transaktionsform { get; set; }
         public IList<string> Huvudtaggar { get; set; }

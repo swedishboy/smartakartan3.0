@@ -10,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using SmartMap.Web.Util;
 using SmartMap.Web.Infrastructure;
 using SmartMap.Web.Models;
-using SmartMap.Web.Util;
 
 namespace SmartMap.Web.Controllers.Api
 {
@@ -476,6 +475,8 @@ namespace SmartMap.Web.Controllers.Api
                         Longitude = x.Longitude
                     }).ToList();
 
+                var icon = m.Icon;
+
                 var allTags = new List<string>();
                 if (m.Taggar != null)
                     allTags = m.Taggar.ToList();
@@ -532,6 +533,7 @@ namespace SmartMap.Web.Controllers.Api
                             Width = cmsImage?.media_details?.sizes?.large?.width
                         }
                     },
+                    Icon = m.Icon,
                     Phone = m.Acf?.Phone,
                     Email = m.Acf?.Email,
                     Area = m.Acf?.Area,

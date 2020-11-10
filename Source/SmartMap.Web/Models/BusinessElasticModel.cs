@@ -40,6 +40,7 @@ namespace SmartMap.Web.Models
         public IdAndNameModel City { get; set; }
         public IdAndNameModel PageType { get; set; }
         public string LanguageCode { get; set; }
+        public string Icon { get; set; }
         public IList<AddressAndCoordinateModel> AddressAndCoordinates { get; set; }
         public string Email { get; set; }
         public long? Phone { get; set; }
