@@ -20,6 +20,7 @@ export interface ICard {
     imageUrl: string;
     imageHtml: string;
     imageAlt: string;
+    icon: string;
     tags: string[];
     detailPageLink: string;
     addressAndCoordinates: ICardAddressAndCoordinate[];

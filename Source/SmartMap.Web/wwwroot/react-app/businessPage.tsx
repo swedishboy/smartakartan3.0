@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { StateService } from './stateService';
 import { Map, IMapMarker } from './Components/map';
-import { icon } from 'leaflet';
+import { icon, marker } from 'leaflet';
 
 export interface IAddressAndCoordinate {
     address: string;
@@ -16,7 +16,7 @@ const BusinessPage: React.FC = () => {
     useEffect(() => {
         let jsonString = StateService.get<string>('businesspage.addressandcoordinatesjson');
         let header = StateService.get<string>('businesspage.header');
-        let iconString = StateService.get<string>('businesspage.icon')
+        let iconRef = StateService.get<string>('businesspage.icon')
         let list: IAddressAndCoordinate[] = [];
 
         if (jsonString != null)
@@ -28,7 +28,8 @@ const BusinessPage: React.FC = () => {
                 markers.push({
                     latitude: a.latitude,
                     longitude: a.longitude,
-                    popup: {address: a.address, description: '', pageLink: '', title: header ?? '', icon: iconString ?? '' },
+                    popup: {address: a.address, description: '', pageLink: '', title: header ?? '' },
+                    icon: iconRef ?? 'no-icon',
                     //title: `${header}<br/>${a.address}`
                 });
             });

@@ -98,6 +98,7 @@ namespace SmartMap.Web.Infrastructure
                 Header = x.Source.Header,
                 ShortDescription = x.Source.ShortDescription,
                 DetailPageLink = x.Source.DetailPageLink,
+                Icon = x.Source.Icon,
                 AddressAndCoordinates = x.Source.AddressAndCoordinates
             });
 
