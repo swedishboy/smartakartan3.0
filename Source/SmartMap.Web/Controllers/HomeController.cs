@@ -11,7 +11,6 @@ using Microsoft.Extensions.Configuration;
 using SmartMap.Web.Controllers;
 using SmartMap.Web.Util;
 using SmartMap.Web.Infrastructure;
-using SmartMap.Web.Util;
 using SmartMap.Web.ViewModels;
 
 namespace SmartMap.Web.Controllers

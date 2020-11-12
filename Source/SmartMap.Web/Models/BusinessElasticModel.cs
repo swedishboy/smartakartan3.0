@@ -113,7 +113,10 @@ namespace SmartMap.Web.Models
         public int Id { get; set; }
         public string Header { get; set; }
         public string ShortDescription { get; set; }
+
         public string DetailPageLink { get; set; }
+
+        public string Icon { get; set; }
         public IList<AddressAndCoordinateModel> AddressAndCoordinates { get; set; }
     }
 }

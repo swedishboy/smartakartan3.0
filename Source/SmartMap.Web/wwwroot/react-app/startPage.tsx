@@ -167,7 +167,8 @@ const StartPage: React.FC = () => {
                     markers.push({
                         latitude: a.latitude,
                         longitude: a.longitude,
-                        popup: { address: a.address, description: c.description, pageLink: c.detailPageLink, title: c.header, icon: c.icon },
+                        popup: { address: a.address, description: c.description, pageLink: c.detailPageLink, title: c.header},
+                        icon: c.icon,
                     });
                 });
             }

@@ -95,6 +95,7 @@ namespace SmartMap.Web.Controllers.Api
                 Header = x.Header,
                 Description = x.ShortDescription,
                 DetailPageLink = x.DetailPageLink,
+                Icon = x.Icon,
                 AddressAndCoordinates = x.AddressAndCoordinates?.Select(c => new AddressAndCoordinateApiModel
                 {
                     Longitude = c.Longitude,
@@ -279,6 +280,7 @@ namespace SmartMap.Web.Controllers.Api
         public string ImageHtml { get; set; }
         public IList<string> Tags { get; set; }
         public string ImageAlt { get; set; }
+        public string Icon { get; set; }
         public IList<AddressAndCoordinateApiModel> AddressAndCoordinates { get; set; }
     }
 
@@ -295,6 +297,9 @@ namespace SmartMap.Web.Controllers.Api
         public string DetailPageLink { get; set; }
         public string Header { get; set; }
         public string Description { get; set; }
+
+        public string Icon { get; set; }
+
         public IList<AddressAndCoordinateApiModel> AddressAndCoordinates { get; set; }
     }
 }
