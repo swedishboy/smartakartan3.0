@@ -21,7 +21,6 @@ export interface ICard {
     imageHtml: string;
     imageAlt: string;
     tags: string[];
-    icon: string;
     detailPageLink: string;
     addressAndCoordinates: ICardAddressAndCoordinate[];
 }
@@ -30,9 +29,9 @@ export interface ICardCoordinate {
     id: number;
     detailPageLink: string;
     header: string;
+    icon: string;
     description: string;
     // @ tags:
-    icon: string;
     addressAndCoordinates: ICardAddressAndCoordinate[];
 }
 
