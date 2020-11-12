@@ -352,7 +352,7 @@ MigrationBackup/
 
 
 # Webpack generated files
-Source/SmartMap.Web/wwwroot/dist
+Source/SmartMap.Web/wwwroot/dist/
 cms/
 appSecrets.json
 appSecrets.Development.json

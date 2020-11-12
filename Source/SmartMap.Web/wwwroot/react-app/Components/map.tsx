@@ -11,6 +11,7 @@ import { getService } from '../bussinessService';
 export interface IMapMarker {
     latitude: number;
     longitude: number;
+    icon: string;
     popup: IMapMarkerPopup;
 }
 
@@ -131,7 +132,7 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
 
                 let lMarker = L.marker(latlng, {
                     icon: L.icon({
-                        iconUrl: '/media/leaflet/marker.svg',
+                        iconUrl: `/media/leaflet/marker.svg?${marker.icon}`,
                         iconSize: [35, 35], // size of the icon
                         iconAnchor: [17, 35], // point of the icon which will correspond to marker's location
                         popupAnchor: [0, -35], // point from which the popup should open relative to the iconAnchor
