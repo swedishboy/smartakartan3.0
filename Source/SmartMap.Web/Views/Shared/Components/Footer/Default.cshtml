@@ -12,6 +12,13 @@
                         <li><a class="text-muted" href="@(page.UrlPath)">@(page.PageName)</a></li>
                     }
                 </ul>
+                <span>
+                <script>
+                    import packageJson from '../package.json';
+                    console.log('CK version '+packageJson.version);
+                    document.write(packageJson.version)
+                </script>    
+                </span>
             </div>
 
             <div class="col-6 col-md">

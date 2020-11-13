@@ -11,8 +11,8 @@ import { getService } from '../bussinessService';
 export interface IMapMarker {
     latitude: number;
     longitude: number;
-    icon: string;
     popup: IMapMarkerPopup;
+    icon: string;    
 }
 
 export interface IMapMarkerPopup {
@@ -130,9 +130,11 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
                     'className': '' // text-capitalize
                 }
 
+                let icon = getIcon(marker.icon);
+
                 let lMarker = L.marker(latlng, {
                     icon: L.icon({
-                        iconUrl: `/media/leaflet/marker.svg?${marker.icon}`,
+                        iconUrl: icon,
                         iconSize: [35, 35], // size of the icon
                         iconAnchor: [17, 35], // point of the icon which will correspond to marker's location
                         popupAnchor: [0, -35], // point from which the popup should open relative to the iconAnchor
@@ -169,6 +171,19 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
           ${link}
         </div>`;
     };
+
+    const getIcon = (iconTag: string): string => {
+        switch(iconTag) {
+            case 'icon1':
+                return '/media/leaflet/marker1.svg';
+            break;
+            case 'icon2':
+                return '/media/leaflet/marker2.svg';
+            break;
+            default:
+                return '/media/leaflet/marker2.svg';
+        }
+    }
 
     const getLocationAndZoomInToInMap = () => {
         if (navigator.geolocation) {

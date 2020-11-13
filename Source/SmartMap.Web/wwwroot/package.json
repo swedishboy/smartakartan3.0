@@ -1,7 +1,7 @@
 {
   "name": "web-prototype",
-  "version": "0.5.0",
-  "description": "smartakarta.se",
+  "version": "3.1",
+  "description": "cirkularakartan",
   "scripts": {
     "watch": "webpack --watch --config webpack.dev.js",
     "start": "webpack --config webpack.dev.js",
