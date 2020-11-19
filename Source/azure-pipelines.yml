@@ -67,7 +67,7 @@ steps:
 - task: AzureWebApp@1
   displayName: 'Deploy Azure Web App'
   inputs:
-    azureSubscription: 'Cirkulära Halland P100083'
+    azureSubscription: 'Free Trial(1)(ec7d5fa5-2253-42ce-8903-d896edb90cc2)'
     appType: 'webAppLinux'
     appName: 'rise-circular'
     package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
