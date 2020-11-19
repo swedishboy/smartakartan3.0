@@ -22,4 +22,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartMap.Web\SmartMap.Web.csproj" />
+  </ItemGroup>
 </Project>
