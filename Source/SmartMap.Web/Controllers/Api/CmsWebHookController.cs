@@ -58,7 +58,8 @@ namespace SmartMap.Web.Controllers.Api
 
             var cityId = StringHelper.ReturnId(model.post_meta?.city?.FirstOrDefault());
             var region = await GetRegionFromId(cityId);
-            var cmsBusiness = await _cmsApiProxy.GetBusiness(postId, region.Businesses_api_path);
+//            var cmsBusiness = await _cmsApiProxy.GetBusiness(postId, region.Businesses_api_path);
+            var cmsBusiness = await _cmsApiProxy.GetBusiness(postId, "global_business");
             var elasticBusiness = await MapToElasticModel(cmsBusiness);
 
             var successful = await _businessRepository.Insert(new List<BusinessElasticModel> { elasticBusiness });
@@ -99,7 +100,8 @@ namespace SmartMap.Web.Controllers.Api
 
             var cityId = StringHelper.ReturnId(model.post_meta?.city?.FirstOrDefault());
             var region = await GetRegionFromId(cityId);
-            var cmsBusiness = await _cmsApiProxy.GetBusiness(postId, region.Businesses_api_path);
+//            var cmsBusiness = await _cmsApiProxy.GetBusiness(postId, region.Businesses_api_path);
+            var cmsBusiness = await _cmsApiProxy.GetBusiness(postId, "global_business");
             var elasticBusiness = await MapToElasticModel(cmsBusiness);
 
             var successful = await _businessRepository.Update(elasticBusiness);
@@ -584,7 +586,7 @@ namespace SmartMap.Web.Controllers.Api
             }
             catch (Exception e)
             {
-                _logger.LogError("Failed to map to elastic model. {Exception}", e, "Vars: acf.city {Acf.City}", m);
+                _logger.LogError("Failed to map to elastic model. {Exception}", e);
                 return null;
             }
         }
