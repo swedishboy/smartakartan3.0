@@ -288,6 +288,7 @@ export const SearchBar: FunctionComponent<ISearchBarInput> = (props: ISearchBarI
                 </button>
 
                 {/* data-toggle="dropdown" */}
+                {/*
                 <button type="button"
                     id="filter-menu-btn"
                     className="btn btn-primary dropdown-toggle btn-sm dont-hide"
@@ -297,7 +298,7 @@ export const SearchBar: FunctionComponent<ISearchBarInput> = (props: ISearchBarI
                     aria-expanded="false">
                     <i className="fas fa-filter dont-hide"></i> {textTranslations?.filterButtonText}
                 </button>
-
+                {/*
                 <div className="dropdown-menu dropdown-menu-right dont-hide" id="filter-menu">
                     <div className="px-4 py-3 dont-hide">
                         <div className="row dont-hide">
@@ -323,6 +324,7 @@ export const SearchBar: FunctionComponent<ISearchBarInput> = (props: ISearchBarI
                         </div>
                     </div>
                 </div>
+                */}
             </div>
         </div>
         <div>{renderTags}</div>

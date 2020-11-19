@@ -23,20 +23,22 @@ const StartPage: React.FC = () => {
     const [filterTags, setFilterTags] = useState<ITag[]>([]);
     // const [filterMainTags, setFilterMainTags] = useState<ITag[]>([]);
     // const [filterSubTags, setFilterSubTags] = useState<ITag[]>([]);
-    const [randomSeed, setRandomSeed] = useState<number>(0);
+//    const [randomSeed, setRandomSeed] = useState<number>(0);
 
     useEffect(() => {
         queryTransactionTags();
     }, []);
 
     useEffect(() => {
-        queryCards(sortValue, 0, getTicks());
+        queryCards(sortValue, 0);
         queryCardCoodrinates();
     }, [searchState]);
 
     // url: https://stackoverflow.com/a/7966778
     const getTicks = (): number => {
-        return (621355968e9 + (new Date()).getTime() * 1e4);
+        // disabling randomness for test:
+        return 34;
+        //return (621355968e9 + (new Date()).getTime() * 1e4);
     };
 
     const getService = (): ServiceResponse => {
@@ -69,13 +71,15 @@ const StartPage: React.FC = () => {
 
     const paginationCallback = (page: number) => {
         setCurrentPage(page);
-        queryCards(sortValue, page, randomSeed);
+        queryCards(sortValue, page);
+//        queryCards(sortValue, page, randomSeed);
     };
 
     const sortingChange = (sorting: string) => {
         setSortValue(sorting);
         setCurrentPage(0);
-        queryCards(sorting, 0, getTicks());
+//        queryCards(sorting, 0, getTicks());
+        queryCards(sorting, 0);
     };
 
     const queryTransactionTags = () => {
@@ -91,12 +95,13 @@ const StartPage: React.FC = () => {
         }
     };
 
-    const queryCards = (sorting: string, page: number, randomSeed: number) => {
+    //const queryCards = (sorting: string, page: number, randomSeed: number) => {
+    const queryCards = (sorting: string, page: number) => {
         let serviceReponse = getService();
 
         if (serviceReponse.service != null) {
-            if (sorting == "Random")
-                setRandomSeed(randomSeed);
+            //if (sorting == "Random")
+            //    setRandomSeed(randomSeed);
 
             let tagString = commaSeparetedString(searchState.tags);
             let transactionTagString = commaSeparetedString(searchState.transactionTags);
@@ -110,8 +115,8 @@ const StartPage: React.FC = () => {
                 page,
                 searchState.digital,
                 searchState.openNow,
-                sorting,
-                randomSeed)
+                sorting)
+                //randomSeed)
                 .then((response: HttpResponse<ICardResponse>) => {
                     if (response.data != null) {
 
@@ -187,16 +192,17 @@ const StartPage: React.FC = () => {
     };
 
     return (
-        <div>
+        <React.Fragment>
+        <Map
+            myPositionFitBound={false}
+            markers={mapMarkers}
+            viewLatLng={mapZoomLatLng}
+            positionSet={positionSet} />
+        <div className="container">
             <SearchBar
                 searchCallback={searchCallback}
                 filterTags={filterTags}
                 transactionTags={transactionTags} />
-            <Map
-                myPositionFitBound={false}
-                markers={mapMarkers}
-                viewLatLng={mapZoomLatLng}
-                positionSet={positionSet} />
             <Cards
                 cardResponse={cardResponse}
                 paginationCallback={paginationCallback}
@@ -205,6 +211,7 @@ const StartPage: React.FC = () => {
                 positionSetLatLng={positionLatLng}
                 sortingCallback={sortingChange} />
         </div>
+        </React.Fragment>
     );
 }
 

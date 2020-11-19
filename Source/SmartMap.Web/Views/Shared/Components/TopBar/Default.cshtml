@@ -1,5 +1,8 @@
 ﻿@model SmartMap.Web.ViewModels.TopBarViewModel
-
+@using SmartMap.Web.Util
+{
+    
+}
 <div class="c-skip">
     <a href="#main">skip</a>
 </div>
@@ -18,7 +21,7 @@
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm fixed-top navbar-light mb-3">
         <div class="container">
             <a class="navbar-brand mb-0 h1 d-none d-sm-block" href="@Model.BasePartialUrl">
-                <img src="/media/dev_logo.png" width="30" height="30" class="d-inline-block align-top" alt="@Model.Translations["topbar.logotype-alt-text"]">
+                <img src="/media/cirkulara_halland_logo_icon.png" width="30" height="30" class="d-inline-block align-top" alt="@Model.Translations["topbar.logotype-alt-text"]">
                 <span class="mt-1">@Model.Translations["topbar.header"]</span>
             </a>
             <a class="navbar-brand mb-0 h1 d-none d-sm-block" href="@Model.RegionUrl">
@@ -26,7 +29,7 @@
             </a>
 
             <a class="navbar-brand mb-0 h1 d-block d-sm-none" href="@Model.RegionUrl">
-                <img src="/media/sk-logotype-topbar.png" width="30" height="30" class="d-inline-block align-top" alt="@Model.Translations["topbar.logotype-alt-text"]">
+                <img src="/media/cirkulara_halland_logo_icon.png" width="30" height="30" class="d-inline-block align-top" alt="@Model.Translations["topbar.logotype-alt-text"]">
                 <span class="mt-1">@(string.IsNullOrEmpty(Model.Region) ? Model.Translations["topbar.header"] : Model.Region)</span>
             </a>
 
@@ -50,18 +53,22 @@
                         </li>
                     }
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-dark dropdown-toggle" href="#" id="city-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            @Model.Translations["topbar.choose-region-menu"]
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="city-dropdown">
-                            @foreach (var r in Model.Regions)
-                            {
-                                var name = r.Name.ToLower() == "global" ? Model.Translations["topbar.all-regions"] : r.Name;
-                                <a class="dropdown-item" href="/@r.UrlPath">@name</a>
-                            }
-                        </div>
-                    </li>
+                    @if (CmsVariable.ShowAreas == true)
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" id="city-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @Model.Translations["topbar.choose-region-menu"]
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="city-dropdown">
+                                @foreach (var r in Model.Regions)
+                                {
+                                    var name = r.Name.ToLower() == "global" ? Model.Translations["topbar.all-regions"] : r.Name;
+                                    <a class="dropdown-item" href="/@r.UrlPath">@name</a>
+                                }
+                            </div>
+                        </li>
+                    }
+
                 </ul>
             </div>
         </div>

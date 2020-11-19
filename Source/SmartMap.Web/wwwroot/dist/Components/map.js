@@ -86,9 +86,10 @@ export var Map = function (props) {
                     // 'maxWidth': '500',
                     'className': '' // text-capitalize
                 };
+                var icon = getIcon(marker.icon);
                 var lMarker = L.marker(latlng, {
                     icon: L.icon({
-                        iconUrl: '/media/leaflet/marker.svg',
+                        iconUrl: icon,
                         iconSize: [35, 35],
                         iconAnchor: [17, 35],
                         popupAnchor: [0, -35],
@@ -114,6 +115,18 @@ export var Map = function (props) {
             link = "<a href=\"" + pageLink + "\" class=\"btn btn-primary w-100\" role=\"button\">" + (textTranslations === null || textTranslations === void 0 ? void 0 : textTranslations.visitButtonText) + "</a>";
         }
         return "<div>\n          <h5 class=\"card-title\">" + title + "</h5>\n          <h6 class=\"card-subtitle mb-0 text-muted\">" + address + "</h6>\n          <p class=\"card-text my-3\">" + description + "</p>\n          " + link + "\n        </div>";
+    };
+    var getIcon = function (iconTag) {
+        switch (iconTag) {
+            case 'icon1':
+                return '/media/leaflet/marker1.svg';
+                break;
+            case 'icon2':
+                return '/media/leaflet/marker2.svg';
+                break;
+            default:
+                return '/media/leaflet/marker2.svg';
+        }
     };
     var getLocationAndZoomInToInMap = function () {
         if (navigator.geolocation) {

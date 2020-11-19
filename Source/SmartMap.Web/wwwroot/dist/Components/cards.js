@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { calculateDistance } from '../Helpers/calculateDistance';
 import { getText } from '../Helpers/getText';
 import { getService } from '../bussinessService';
+var ShowCardMapMarker = false;
 var DefaultICardState = { cards: [], totalFound: 0, itemsPerPage: 0 };
 export var DefaultSortValue = 'Random';
 export var Cards = function (props) {
@@ -56,7 +57,7 @@ export var Cards = function (props) {
     var renderLoader = React.createElement(React.Fragment, null);
     renderCards = cardState.cards.map(function (c, i) {
         var _a, _b;
-        return React.createElement("div", { className: "col mb-4", key: i },
+        return React.createElement("div", { className: "col mb-4 sk-card", key: i },
             React.createElement("a", { className: "card-link", href: c.detailPageLink },
                 React.createElement("div", { className: "card h-100" },
                     React.createElement("div", { className: "position-relative" },
@@ -71,7 +72,7 @@ export var Cards = function (props) {
                                         calculateDistance(props.positionSetLatLng[0], props.positionSetLatLng[1], c.addressAndCoordinates[0].latitude, c.addressAndCoordinates[0].longitude),
                                         " km"),
                                     "\u00A0"),
-                            ((_b = c.addressAndCoordinates) === null || _b === void 0 ? void 0 : _b.length) === 1 &&
+                            ((_b = c.addressAndCoordinates) === null || _b === void 0 ? void 0 : _b.length) === 1 && ShowCardMapMarker &&
                                 React.createElement("span", { onClick: function (e) { return positionCard(e, [c.addressAndCoordinates[0].latitude, c.addressAndCoordinates[0].longitude]); }, className: "badge badge-primary text-capitalize" },
                                     React.createElement("i", { className: "fas fa-map-marker-alt" })))),
                     React.createElement("div", { className: "card-body d-flex align-items-stretch flex-column" },
@@ -90,6 +91,7 @@ export var Cards = function (props) {
                         React.createElement("h3", { className: "card-title my-1" }, c.header),
                         React.createElement("p", { className: "card-text mb-auto" }, c.description)))));
     });
+    renderCards.sort(function (a, b) { return Math.random() - 0.5; });
     if ((cardState.itemsPerPage * (props.currentPage + 1)) < cardState.totalFound) {
         renderPagination =
             React.createElement("button", { className: "btn btn-lg btn-primary btn-block", onClick: loadMoreCards }, textTranslations === null || textTranslations === void 0 ? void 0 : textTranslations.loadMoreCardsText);
@@ -124,7 +126,7 @@ export var Cards = function (props) {
                         React.createElement("option", { value: "HeaderAcs" }, textTranslations === null || textTranslations === void 0 ? void 0 : textTranslations.sortHeaderAcs),
                         React.createElement("option", { value: "HeaderDesc" }, textTranslations === null || textTranslations === void 0 ? void 0 : textTranslations.sortHeaderDesc))))),
         renderLoader,
-        React.createElement("div", { className: "row row-cols-1 row-cols-md-2 row-cols-lg-3" }, renderCards),
+        React.createElement("div", { id: "cards", className: "row row-cols-1 row-cols-md-2 row-cols-lg-3" }, renderCards),
         React.createElement("div", { className: "row" },
             React.createElement("div", { className: "col-lg-4 offset-lg-4" }, renderPagination)));
 };

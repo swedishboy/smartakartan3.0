@@ -15,17 +15,19 @@ var StartPage = function () {
     var _g = useState([]), filterTags = _g[0], setFilterTags = _g[1];
     // const [filterMainTags, setFilterMainTags] = useState<ITag[]>([]);
     // const [filterSubTags, setFilterSubTags] = useState<ITag[]>([]);
-    var _h = useState(0), randomSeed = _h[0], setRandomSeed = _h[1];
+    //    const [randomSeed, setRandomSeed] = useState<number>(0);
     useEffect(function () {
         queryTransactionTags();
     }, []);
     useEffect(function () {
-        queryCards(sortValue, 0, getTicks());
+        queryCards(sortValue, 0);
         queryCardCoodrinates();
     }, [searchState]);
     // url: https://stackoverflow.com/a/7966778
     var getTicks = function () {
-        return (621355968e9 + (new Date()).getTime() * 1e4);
+        // disabling randomness for test:
+        return 34;
+        //return (621355968e9 + (new Date()).getTime() * 1e4);
     };
     var getService = function () {
         var baseUrl = StateService.get('common.baseurl');
@@ -51,12 +53,14 @@ var StartPage = function () {
     };
     var paginationCallback = function (page) {
         setCurrentPage(page);
-        queryCards(sortValue, page, randomSeed);
+        queryCards(sortValue, page);
+        //        queryCards(sortValue, page, randomSeed);
     };
     var sortingChange = function (sorting) {
         setSortValue(sorting);
         setCurrentPage(0);
-        queryCards(sorting, 0, getTicks());
+        //        queryCards(sorting, 0, getTicks());
+        queryCards(sorting, 0);
     };
     var queryTransactionTags = function () {
         var serviceReponse = getService();
@@ -70,14 +74,16 @@ var StartPage = function () {
             });
         }
     };
-    var queryCards = function (sorting, page, randomSeed) {
+    //const queryCards = (sorting: string, page: number, randomSeed: number) => {
+    var queryCards = function (sorting, page) {
         var serviceReponse = getService();
         if (serviceReponse.service != null) {
-            if (sorting == "Random")
-                setRandomSeed(randomSeed);
+            //if (sorting == "Random")
+            //    setRandomSeed(randomSeed);
             var tagString = commaSeparetedString(searchState.tags);
             var transactionTagString = commaSeparetedString(searchState.transactionTags);
-            serviceReponse.service.getCards(searchState.query, tagString, transactionTagString, serviceReponse.region, serviceReponse.languageCode, page, searchState.digital, searchState.openNow, sorting, randomSeed)
+            serviceReponse.service.getCards(searchState.query, tagString, transactionTagString, serviceReponse.region, serviceReponse.languageCode, page, searchState.digital, searchState.openNow, sorting)
+                //randomSeed)
                 .then(function (response) {
                 if (response.data != null) {
                     setCardResponse({
@@ -120,24 +126,26 @@ var StartPage = function () {
                         latitude: a.latitude,
                         longitude: a.longitude,
                         popup: { address: a.address, description: c.description, pageLink: c.detailPageLink, title: c.header },
+                        icon: c.icon,
                     });
                 });
             }
         });
         setMapMarkers(markers);
     };
-    var _j = useState([0, 0]), mapZoomLatLng = _j[0], setMapZoomLatLng = _j[1];
+    var _h = useState([0, 0]), mapZoomLatLng = _h[0], setMapZoomLatLng = _h[1];
     var zoomToMarker = function (latlng) {
         setMapZoomLatLng(latlng);
     };
-    var _k = useState(), positionLatLng = _k[0], setPositionLatLng = _k[1];
+    var _j = useState(), positionLatLng = _j[0], setPositionLatLng = _j[1];
     var positionSet = function (latlng) {
         setPositionLatLng(latlng);
     };
-    return (React.createElement("div", null,
-        React.createElement(SearchBar, { searchCallback: searchCallback, filterTags: filterTags, transactionTags: transactionTags }),
+    return (React.createElement(React.Fragment, null,
         React.createElement(Map, { myPositionFitBound: false, markers: mapMarkers, viewLatLng: mapZoomLatLng, positionSet: positionSet }),
-        React.createElement(Cards, { cardResponse: cardResponse, paginationCallback: paginationCallback, currentPage: currentPage, zoomToMarker: zoomToMarker, positionSetLatLng: positionLatLng, sortingCallback: sortingChange })));
+        React.createElement("div", { className: "container" },
+            React.createElement(SearchBar, { searchCallback: searchCallback, filterTags: filterTags, transactionTags: transactionTags }),
+            React.createElement(Cards, { cardResponse: cardResponse, paginationCallback: paginationCallback, currentPage: currentPage, zoomToMarker: zoomToMarker, positionSetLatLng: positionLatLng, sortingCallback: sortingChange }))));
 };
 export default StartPage;
 //# sourceMappingURL=startPage.js.map

@@ -118,7 +118,7 @@ namespace SmartMap.Web.Controllers.Api
             var regionIds = await GetRegionsIdString(languageCode, model.Region);
 
             var response = await _businessRepository.GetBusinesses(
-                model.RandomSeed,
+                // model.RandomSeed,
                 from, 
                 size, 
                 query: model.Query,
@@ -252,7 +252,7 @@ namespace SmartMap.Web.Controllers.Api
         public string Lang { get; set; }
         public bool Digital { get; set; }
         public bool OpenNow { get; set; }
-        public long RandomSeed { get; set; }
+        //public long RandomSeed { get; set; }
         public BusinessSorting Sorting { get; set; } = BusinessSorting.Random;
     }
 

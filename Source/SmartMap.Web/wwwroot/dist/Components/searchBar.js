@@ -195,26 +195,7 @@ export var SearchBar = function (props) {
                 React.createElement("button", { className: "btn btn-primary", type: "button", id: "button-search", onClick: callSearch },
                     React.createElement("i", { className: "fas fa-search" }),
                     " ", textTranslations === null || textTranslations === void 0 ? void 0 :
-                    textTranslations.searchButtonText),
-                React.createElement("button", { type: "button", id: "filter-menu-btn", className: "btn btn-primary dropdown-toggle btn-sm dont-hide", "data-display": "static", "aria-haspopup": "true", "aria-expanded": "false" },
-                    React.createElement("i", { className: "fas fa-filter dont-hide" }),
-                    " ", textTranslations === null || textTranslations === void 0 ? void 0 :
-                    textTranslations.filterButtonText),
-                React.createElement("div", { className: "dropdown-menu dropdown-menu-right dont-hide", id: "filter-menu" },
-                    React.createElement("div", { className: "px-4 py-3 dont-hide" },
-                        React.createElement("div", { className: "row dont-hide" },
-                            React.createElement("div", { className: "col-6 dont-hide" },
-                                React.createElement("h6", { className: "dont-hide" }, textTranslations === null || textTranslations === void 0 ? void 0 : textTranslations.transactionHeaderText),
-                                React.createElement("div", { className: "form-group pt-1 dont-hide" }, renderTransactionTags)),
-                            React.createElement("div", { className: "col-6 dont-hide" },
-                                React.createElement("h6", { className: "dont-hide" }, textTranslations === null || textTranslations === void 0 ? void 0 : textTranslations.miscHeaderText),
-                                React.createElement("div", { className: "form-group pt-1 dont-hide" },
-                                    React.createElement("div", { className: "custom-control custom-checkbox mb-1 dont-hide" },
-                                        React.createElement("input", { type: "checkbox", onChange: changeEvent, className: "custom-control-input dont-hide", id: "cc-digital", name: "cc-digital", value: "digital" }),
-                                        React.createElement("label", { className: "custom-control-label text-capitalize dont-hide", htmlFor: "cc-digital" }, textTranslations === null || textTranslations === void 0 ? void 0 : textTranslations.chkboxDigitalText)),
-                                    React.createElement("div", { className: "custom-control custom-checkbox dont-hide" },
-                                        React.createElement("input", { type: "checkbox", onChange: changeEvent, className: "custom-control-input dont-hide", id: "cc-opennow", name: "cc-opennow", value: "opennow" }),
-                                        React.createElement("label", { className: "custom-control-label text-capitalize dont-hide", htmlFor: "cc-opennow" }, textTranslations === null || textTranslations === void 0 ? void 0 : textTranslations.chkboxOpenNowText))))))))),
+                    textTranslations.searchButtonText))),
         React.createElement("div", null, renderTags),
         React.createElement("div", null, renderSubTags));
 };

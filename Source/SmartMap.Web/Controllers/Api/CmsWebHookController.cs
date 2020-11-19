@@ -584,7 +584,7 @@ namespace SmartMap.Web.Controllers.Api
             }
             catch (Exception e)
             {
-                _logger.LogError("Failed to map to elastic model. {Exception}.", e);
+                _logger.LogError("Failed to map to elastic model. {Exception}", e, "Vars: acf.city {Acf.City}", m);
                 return null;
             }
         }

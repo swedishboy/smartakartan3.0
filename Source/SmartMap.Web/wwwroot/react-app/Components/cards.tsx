@@ -1,8 +1,10 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import React, { FunctionComponent, useState, useEffect, Component } from 'react';
 import { ICardResponse, ICard } from '../service-model';
 import { calculateDistance } from '../Helpers/calculateDistance';
 import { getText } from '../Helpers/getText';
 import { getService } from '../bussinessService';
+
+const ShowCardMapMarker = false;
 
 export interface ICardState {
     cards: ICard[];
@@ -95,7 +97,7 @@ export const Cards: FunctionComponent<ICardRequest> = (props: ICardRequest) => {
     var renderLoader: JSX.Element = <></>;
 
     renderCards = cardState.cards.map((c: ICard, i: number) =>
-        <div className="col mb-4" key={i}>
+        <div className="col mb-4 sk-card" key={i}>
             <a className="card-link" href={c.detailPageLink}>
                 <div className="card h-100">
                     <div className="position-relative">
@@ -121,7 +123,7 @@ export const Cards: FunctionComponent<ICardRequest> = (props: ICardRequest) => {
                                 </>
                             }
 
-                            {c.addressAndCoordinates?.length === 1 &&
+                            {c.addressAndCoordinates?.length === 1 && ShowCardMapMarker &&
                                 <span onClick={(e) => positionCard(e, [c.addressAndCoordinates[0].latitude, c.addressAndCoordinates[0].longitude])} className="badge badge-primary text-capitalize">
                                     <i className="fas fa-map-marker-alt"></i>
                                 </span>
@@ -146,12 +148,15 @@ export const Cards: FunctionComponent<ICardRequest> = (props: ICardRequest) => {
         </div>
     );
 
+    renderCards.sort((a,b) => Math.random() - 0.5);
+
     if ((cardState.itemsPerPage * (props.currentPage + 1)) < cardState.totalFound) {
         renderPagination =
             <button className="btn btn-lg btn-primary btn-block" onClick={loadMoreCards}>
                 {textTranslations?.loadMoreCardsText}
             </button>;
     }
+
 
     if (isLoading) {
         renderLoader = <div>
@@ -168,7 +173,7 @@ export const Cards: FunctionComponent<ICardRequest> = (props: ICardRequest) => {
             showingCards = showingCards
                 .replace("[ShowingCards]", cardState.cards.length.toString())
                 .replace("[TotalFound]", cardState.totalFound.toString());
-            renderCardsFound = <span className="align-sub cards-found">{showingCards}</span>
+            renderCardsFound = <span className="align-sub cards-found">{showingCards}</span>;
         }
     }
 
@@ -191,7 +196,7 @@ export const Cards: FunctionComponent<ICardRequest> = (props: ICardRequest) => {
 
         {renderLoader}
 
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div id="cards" className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
             {renderCards}
         </div>
         <div className="row">

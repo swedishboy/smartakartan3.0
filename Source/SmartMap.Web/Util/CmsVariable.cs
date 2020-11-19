@@ -21,7 +21,10 @@
 
         public const string BusinessPageTypeName = "BusinessPage";
 
-        public const string SiteName = "Smarta Kartan";
+        public const bool   ShowAreas = false;
+        public const bool   ShowCardMapMarker = false;
+
+        public const string SiteName = "Cirkulära Kartan";
 
         public const int ElasticSize = 3000;
     }

@@ -68,7 +68,7 @@ var BussinessService = /** @class */ (function () {
             });
         });
     };
-    BussinessService.prototype.getCards = function (query, tags, transactionTags, region, languageCode, curretPage, digital, openNow, sorting, randomSeed) {
+    BussinessService.prototype.getCards = function (query, tags, transactionTags, region, languageCode, curretPage, digital, openNow, sorting) {
         return __awaiter(this, void 0, void 0, function () {
             var response, params, exception_2;
             return __generator(this, function (_a) {
@@ -85,7 +85,6 @@ var BussinessService = /** @class */ (function () {
                             digital: digital === null || digital === void 0 ? void 0 : digital.toString(),
                             openNow: openNow === null || openNow === void 0 ? void 0 : openNow.toString(),
                             sorting: sorting,
-                            randomSeed: randomSeed.toString(),
                         });
                         return [4 /*yield*/, http(this._baseUrl + "/" + this._partialUrl + "?" + params.toString(), {
                                 method: this.GET,

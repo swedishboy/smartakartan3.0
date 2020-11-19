@@ -26,7 +26,7 @@ namespace SmartMap.Web.Infrastructure
             string languageCode = CmsVariable.DefaultLanguageCode);
 
         Task<BusinessElasticReturnModel> GetBusinesses(
-            long randomSeed,
+            //long randomSeed,
             int from = 0,
             int size = 10,
             string query = null,
