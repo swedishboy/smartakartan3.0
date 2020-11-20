@@ -24,6 +24,8 @@
         public const bool   ShowAreas = false;
         public const bool   ShowCardMapMarker = false;
 
+        public const bool   SingleBusinessRegion = true;
+
         public const string SiteName = "Cirkulära Kartan";
 
         public const int ElasticSize = 3000;

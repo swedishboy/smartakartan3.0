@@ -106,7 +106,7 @@ namespace SmartMap.Web.Infrastructure
         }
 
         public async Task<BusinessElasticReturnModel> GetBusinesses(
-            //long randomSeed,
+            long randomSeed,
             int from = 0, 
             int size = 10, 
             string query = null,
@@ -136,7 +136,7 @@ namespace SmartMap.Web.Infrastructure
                     .Query(oq =>
                         oq.FunctionScore(fs => fs
                             .Query(MainQuery(query, tags, transactionTags, regionIds, digital, openNow, languageCode))
-                            //.Functions(f => f.RandomScore(rs => rs.Seed(randomSeed)))
+                            .Functions(f => f.RandomScore(rs => rs.Seed(randomSeed)))
                             )
                     )
                 );
@@ -324,10 +324,10 @@ namespace SmartMap.Web.Infrastructure
 
     public enum BusinessSorting
     {
-        Random,
         LatestAdded,
         LatestUpdated,
         HeaderDesc,
-        HeaderAcs
+        HeaderAcs,
+        Random
     }
 }

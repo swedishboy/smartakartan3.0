@@ -58,8 +58,9 @@ namespace SmartMap.Web.Controllers.Api
 
             var cityId = StringHelper.ReturnId(model.post_meta?.city?.FirstOrDefault());
             var region = await GetRegionFromId(cityId);
-//            var cmsBusiness = await _cmsApiProxy.GetBusiness(postId, region.Businesses_api_path);
-            var cmsBusiness = await _cmsApiProxy.GetBusiness(postId, "global_business");
+            var business_path = CmsVariable.SingleBusinessRegion ? "global_business" : region.Businesses_api_path;
+
+            var cmsBusiness = await _cmsApiProxy.GetBusiness(postId, business_path);
             var elasticBusiness = await MapToElasticModel(cmsBusiness);
 
             var successful = await _businessRepository.Insert(new List<BusinessElasticModel> { elasticBusiness });
@@ -100,8 +101,11 @@ namespace SmartMap.Web.Controllers.Api
 
             var cityId = StringHelper.ReturnId(model.post_meta?.city?.FirstOrDefault());
             var region = await GetRegionFromId(cityId);
-//            var cmsBusiness = await _cmsApiProxy.GetBusiness(postId, region.Businesses_api_path);
-            var cmsBusiness = await _cmsApiProxy.GetBusiness(postId, "global_business");
+            var business_path = CmsVariable.SingleBusinessRegion ? "global_business" : region.Businesses_api_path;
+
+            var cmsBusiness = await _cmsApiProxy.GetBusiness(postId, business_path);
+
+
             var elasticBusiness = await MapToElasticModel(cmsBusiness);
 
             var successful = await _businessRepository.Update(elasticBusiness);

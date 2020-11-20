@@ -1,5 +1,4 @@
-// adding fonts from google
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Mono:wght@400;600&display=swap');
+
 
 /* latin */
 @font-face {
@@ -10,25 +9,4 @@
     src: local('Palanquin SemiBold'), local('Palanquin-SemiBold'), url(https://fonts.gstatic.com/s/palanquin/v5/9XUilJ90n1fBFg7ceXwUrn9Yw5Gr.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-// font-family: 'Palanquin', sans-serif;
-
-// /* latin-ext */
-// @font-face {
-//     font-family: 'Andada';
-//     font-style: normal;
-//     font-weight: 400;
-//     font-display: swap;
-//     src: local('Andada Regular'), local('Andada-Regular'), url(https://fonts.gstatic.com/s/andada/v11/uK_y4riWaego3w9hAxcSAv4.woff2) format('woff2');
-//     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-// }
-/* latin */
-@font-face {
-    font-family: 'Andada';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local('Andada Regular'), local('Andada-Regular'), url(https://fonts.gstatic.com/s/andada/v11/uK_y4riWaego3w9hDRcS.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-// font-family: 'Andada', serif;
 

@@ -12,7 +12,7 @@ export interface ICardState {
     itemsPerPage: number;
 }
 const DefaultICardState: ICardState = { cards: [], totalFound: 0, itemsPerPage: 0 };
-export const DefaultSortValue: string = 'Random';
+export const DefaultSortValue: string = 'LatestAdded';
 
 export interface ICardRequest {
     cardResponse: ICardResponse;
@@ -148,7 +148,8 @@ export const Cards: FunctionComponent<ICardRequest> = (props: ICardRequest) => {
         </div>
     );
 
-    renderCards.sort((a,b) => Math.random() - 0.5);
+    // possible tweak to sorting here
+    //renderCards.sort((a,b) => Math.random() - 0.5);
 
     if ((cardState.itemsPerPage * (props.currentPage + 1)) < cardState.totalFound) {
         renderPagination =
@@ -184,11 +185,11 @@ export const Cards: FunctionComponent<ICardRequest> = (props: ICardRequest) => {
                 <div className="form-group">
                     <label className="sr-only" htmlFor="search-sort">{textTranslations?.sortTitle}</label>
                     <select value={sortValue} onChange={handleSortChange} className="form-control form-control-sm" id="search-sort">
-                        <option value="Random">{textTranslations?.sortRandom}</option>
                         <option value="LatestAdded">{textTranslations?.sortLatestAdded}</option>
                         <option value="LatestUpdated">{textTranslations?.sortLatestUpdated}</option>
                         <option value="HeaderAcs">{textTranslations?.sortHeaderAcs}</option>
                         <option value="HeaderDesc">{textTranslations?.sortHeaderDesc}</option>
+                        <option value="Random">{textTranslations?.sortRandom}</option>
                     </select>
                 </div>
             </div>

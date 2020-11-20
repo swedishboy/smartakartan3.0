@@ -3,8 +3,8 @@ import { http, HttpResponse } from './http';
 import { ICardResponse, ICardCoordinate, ITag, ITranslation } from './service-model';
 
 export interface IBussinessService {
-//  getCards(query: string, tags: string, transactionTags: string, region: string, languageCode: string, curretPage: number, digital: boolean, openNow: boolean, sorting: string, randomSeed: number): Promise<HttpResponse<ICardResponse>>;
-    getCards(query: string, tags: string, transactionTags: string, region: string, languageCode: string, curretPage: number, digital: boolean, openNow: boolean, sorting: string): Promise<HttpResponse<ICardResponse>>;
+    getCards(query: string, tags: string, transactionTags: string, region: string, languageCode: string, curretPage: number, digital: boolean, openNow: boolean, sorting: string, randomSeed: number): Promise<HttpResponse<ICardResponse>>;
+//  getCards(query: string, tags: string, transactionTags: string, region: string, languageCode: string, curretPage: number, digital: boolean, openNow: boolean, sorting: string): Promise<HttpResponse<ICardResponse>>;
     getCardCoordinates(query: string, tags: string, transactionTags: string, region: string, languageCode: string, digital: boolean, openNow: boolean): Promise<ICardCoordinate[]>;
     getTransactionTags(languageCode: string): Promise<ITag[]>;
     getTranslations(): Promise<ITranslation[]>;
@@ -51,7 +51,7 @@ export class BussinessService implements IBussinessService {
         digital: boolean,
         openNow: boolean,
         sorting: string,
-        //randomSeed: number,
+        randomSeed: number,
     ): Promise<HttpResponse<ICardResponse>> {
         let response: HttpResponse<ICardResponse>;
         try {
@@ -65,7 +65,7 @@ export class BussinessService implements IBussinessService {
                 digital: digital?.toString(),
                 openNow: openNow?.toString(),
                 sorting: sorting,
-                //randomSeed: randomSeed.toString(),
+                randomSeed: randomSeed.toString(),
             });
 
             response = await http<ICardResponse>(

@@ -29,6 +29,9 @@
         <link rel="stylesheet" asp-href-include="~/dist/reactmain*.bundle.css" />
     }
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+
     <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
 </head>
@@ -38,7 +41,7 @@
     @await Component.InvokeAsync("Footer")
     @RenderSection("Scripts", required: false)
 @await Component.InvokeAsync("CookieConsent")
-<input type="hidden" id="RequestVerificationToken" name="RequestVerificationToken" value="@GetAntiXsrfRequestToken()">    
+<input type="hidden" id="RequestVerificationToken" name="RequestVerificationToken" value="@GetAntiXsrfRequestToken()" />    
 
     @if (hostingEnv.IsProduction())
     {

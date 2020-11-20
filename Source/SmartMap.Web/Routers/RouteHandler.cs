@@ -150,7 +150,7 @@ namespace SmartMap.Web.Routers
             {
                 var businessPagePartialUrl = $"/{normalizedPage}";
                 var languageCode = string.IsNullOrEmpty(language) ? CmsVariable.DefaultLanguageCode : language;
-                var businesses = await BusinessRepository.GetBusinesses(from: 0, size: CmsVariable.ElasticSize, languageCode: languageCode);
+                var businesses = await BusinessRepository.GetBusinesses(randomSeed: 0, from: 0, size: CmsVariable.ElasticSize, languageCode: languageCode);
                 var business = businesses?.Items?.FirstOrDefault(b => b.Business.DetailPageLink.EndsWith(businessPagePartialUrl));
                 if (business?.Business != null)
                 {

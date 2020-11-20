@@ -1,6 +1,6 @@
 @import "variables";
 
-$sk-blue: #0072ed;
+$sk-blue: #1c4c8a;
 
 // GENERAL
 h1,.h1 { font-size: 1.85rem; }
@@ -19,7 +19,7 @@ a {
     background-color: $sk-blue;
 }
 .btn-outline-primary {
-    color: #006de1;
+    color: #064385;
     &:hover {
         background-color: $gray-300;
         color: $blue;
