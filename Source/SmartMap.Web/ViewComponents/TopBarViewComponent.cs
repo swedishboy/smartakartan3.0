@@ -42,7 +42,8 @@ namespace SmartMap.Web.ViewComponents
                 BasePartialUrl = baseUrl
             };
 
-            var pages = await _cmsApiProxy.GetPages(language, regionPagesUrl);
+            var pages = await _cmsApiProxy.GetPages(language, CmsVariable.DefaultPageApiPath);
+            //var pages = await _cmsApiProxy.GetPages(language, regionPagesUrl);
 
             var urlList = new List<string>();
             var partialUrl = string.Empty;

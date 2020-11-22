@@ -5,6 +5,7 @@ import 'leaflet';
 import "leaflet.markercluster";
 import 'leaflet-gesture-handling';
 import 'leaflet.fullscreen';
+import 'leaflet-providers';
 import { getText } from '../Helpers/getText';
 import { getService } from '../bussinessService';
 
@@ -54,7 +55,7 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
         if (_service != null) {
             _service.getTranslations().then(translations => {
                 setTextTranslations({
-                    iconAltText: getText('map.icon-alt', translations, 'Icon made by Freepik from www.flaticon.com'),
+                    iconAltText: getText('map.icon-alt', translations, 'Ikon för verksamhetens plats på kartan'),
                     yourPositionText: getText('map.your-position', translations, 'Din position'),
                     geoLocationFailedText: getText('map.geo-location-failed', translations, 'Gick inte att hämta din position'),
                     loadingText: getText('common.loading', translations, 'Laddar...'),
@@ -76,10 +77,10 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
     const mapRef = useRef<L.Map | null>(null);
     useEffect(() => {
         L.Map.addInitHook("addHandler", "gestureHandling", GestureHandling);
-
         mapRef.current = (L as any).map('map', { // (L as any)
             zoomControl: true,
-            gestureHandling: true,
+            //gestureHandling: true,
+            scrollWheelZoom: true,
             keyboard: true,
             fullscreenControl: true,
             fullscreenControlOptions: {
@@ -89,14 +90,23 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
 
         if (mapRef.current != null) {
             //mapRef.current.zoomControl.setPosition('topright');
-
+            /*
             L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
                 maxZoom: mapMaxZoom,
                 minZoom: mapMinZoom
             }).addTo(mapRef.current);
+            */
+            L.tileLayer.provider('CartoDB.Voyager', {
+                attribution: '© OpenStreetMap contributors © CARTO',
+                maxZoom: mapMaxZoom,
+                minZoom: mapMinZoom
+            }).addTo(mapRef.current);      
+
         }
+    
     }, []);
+
 
     // Add Layer
     const layerRef = useRef<L.LayerGroup | null>(null);
@@ -148,8 +158,9 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
             }
         });
 
-        if (mapRef.current != null && layerRef.current != null)
+        if (mapRef.current != null && layerRef.current != null) {
             mapRef.current.addLayer(layerRef.current);
+        }
 
         if (mapRef.current !== null && featureGroup.getBounds().isValid()) {
             mapRef.current.fitBounds(featureGroup.getBounds(), { padding: [30, 30], maxZoom: 16 });
@@ -173,15 +184,24 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
     };
 
     const getIcon = (iconTag: string): string => {
+        console.log("attaching icon "+iconTag);
+
         switch(iconTag) {
-            case 'icon1':
-                return '/media/leaflet/marker1.svg';
+            case 'ikon1': // close the loop
+                return '/media/leaflet/close_the_loop.svg';
             break;
-            case 'icon2':
-                return '/media/leaflet/marker2.svg';
+            case 'ikon2': // narrow
+                return '/media/leaflet/narrow.svg';
             break;
+            case 'ikon3': // slow down
+                return '/media/leaflet/slow_down.svg';
+            break;
+            case 'ikon4': // enablers
+                return '/media/leaflet/enablers.svg';
+            break;
+
             default:
-                return '/media/leaflet/marker2.svg';
+                return '/media/leaflet/clean_marker.svg';
         }
     }
 

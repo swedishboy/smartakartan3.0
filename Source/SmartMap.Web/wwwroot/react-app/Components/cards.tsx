@@ -107,7 +107,7 @@ export const Cards: FunctionComponent<ICardRequest> = (props: ICardRequest) => {
                             <svg className="bd-placeholder-img card-img-top mr-2" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
                                 <title>Placeholder</title>
                                 <rect width="100%" height="100%" fill="#c0c5ce"></rect>
-                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Smarta Kartan</text>
+                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Bild saknas</text>
                             </svg>
                         )}
                         <div className="info-over-image">

@@ -228,7 +228,7 @@ export const SearchBar: FunctionComponent<ISearchBarInput> = (props: ISearchBarI
                     type="button"
                     value={t.name}
                     onClick={tagClick}
-                    className={`btn ${tagsState.indexOf(t.name) === -1 ? 'btn-outline-primary' : 'btn-primary'} btn-sm text-capitalize mb-2`}>
+                    className={`btn ${tagsState.indexOf(t.name) === -1 ? 'btn-secondary' : 'btn-primary'} btn-sm text-capitalize mb-2`}>
                     {t.name} 
                     {/* <span className="badge badge-primary">{t.count}</span> */}
                     <span className="sr-only">{textTranslations?.srBusinesses}</span>

@@ -340,6 +340,7 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+.history
 
 # BeatPulse healthcheck temp database
 healthchecksdb
@@ -352,7 +353,7 @@ MigrationBackup/
 
 
 # Webpack generated files
-Source/SmartMap.Web/wwwroot/dist/
+dist
 cms/
 appSecrets.json
 appSecrets.Development.json

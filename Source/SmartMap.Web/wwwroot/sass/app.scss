@@ -53,11 +53,6 @@ h3.card-title {
     font-weight: 800;
 }
 
-.badge {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 0.9em;
-    font-weight: 400;
-}
 
 
 .business-page {
@@ -88,7 +83,8 @@ h3.card-title {
 
 .start-page {
 
-    padding-top: 31px;
+    padding-top: 0;
+    margin-top: 56px;
 
     .info-over-image {
         position: absolute;
@@ -160,13 +156,17 @@ h3.card-title {
 .marker-cluster div {
     font-weight: bold;
 }
-.marker-cluster-small {
-    background-color: rgba(181, 226, 140, 1);
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+    background-color: rgba(140, 159, 226, 0.53)
 }
-.marker-cluster-small div {
-    background-color: rgba(110, 204, 57, 1);
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+    background-color: #60a6ff
 }
-
+/*
 .marker-cluster-medium {
     background-color: rgba(241, 211, 87, 1);
 }
@@ -180,7 +180,7 @@ h3.card-title {
 .marker-cluster-large div {
     background-color: rgba(241, 128, 23, 1);
 }
-
+*/
 // LEAFLET fullscreen overrides
 .fullscreen-icon { background-image: url($leaflet-fullscreen-icon-path + 'icon-fullscreen.png'); }
 .leaflet-retina .fullscreen-icon { background-image: url($leaflet-fullscreen-icon-path + 'icon-fullscreen-2x.png'); background-size: 26px 26px; }

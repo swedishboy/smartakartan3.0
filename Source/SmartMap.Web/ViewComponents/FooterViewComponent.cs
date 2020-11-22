@@ -44,7 +44,7 @@ namespace SmartMap.Web.ViewComponents
             var centerFooterPages = GetPages(globalPages, CmsPageType.CenterFooter, partialUrl);
             var rightFooterPages = GetPages(globalPages, CmsPageType.RightFooter, partialUrl);
 
-            if (regionPagesUrl != CmsVariable.DefaultPageApiPath)
+            if (regionPagesUrl != CmsVariable.DefaultPageApiPath && false == true)
             {
                 urlList = new List<string>();
 
@@ -66,8 +66,10 @@ namespace SmartMap.Web.ViewComponents
             var model = new FooterViewModel
             {
                 Translations = translations,
-                Header = regionTitle == "" ? translations["footer.center-title"] : CmsVariable.SiteName,
-                RegionTitle = regionTitle == "" ? CmsVariable.SiteName : regionTitle,
+                Header = translations["footer.center-title"],
+                RegionTitle = CmsVariable.SiteName,
+//                Header = regionTitle == "" ? translations["footer.center-title"] : CmsVariable.SiteName,
+//                RegionTitle = regionTitle == "" ? CmsVariable.SiteName : regionTitle,
                 LeftFooterPages = leftFooterPages,
                 CenterFooterPages = centerFooterPages,
                 RightFooterPages = rightFooterPages,

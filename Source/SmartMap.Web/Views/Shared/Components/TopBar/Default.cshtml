@@ -1,8 +1,6 @@
 ﻿@model SmartMap.Web.ViewModels.TopBarViewModel
 @using SmartMap.Web.Util
-{
-    
-}
+
 <div class="c-skip">
     <a href="#main">skip</a>
 </div>
@@ -21,16 +19,16 @@
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm fixed-top navbar-light mb-3">
         <div class="container">
             <a class="navbar-brand mb-0 h1 d-none d-sm-block" href="@Model.BasePartialUrl">
-                <img src="/media/cirkulara_halland_logo_icon.png" width="30" height="30" class="d-inline-block align-top" alt="@Model.Translations["topbar.logotype-alt-text"]">
+                <img src="/media/cirkulara-kartan-logo.png" width="30" height="30" class="d-inline-block align-top" alt="@Model.Translations["topbar.logotype-alt-text"]">
                 <span class="mt-1">@Model.Translations["topbar.header"]</span>
             </a>
-            <a class="navbar-brand mb-0 h1 d-none d-sm-block" href="@Model.RegionUrl">
+            <!--<a class="navbar-brand mb-0 h1 d-none d-sm-block" href="@Model.RegionUrl">
                 <span class="mt-1">@(string.IsNullOrEmpty(Model.Region) ? "" : " | ")@(Model.Region)</span>
-            </a>
+            </a>-->
 
             <a class="navbar-brand mb-0 h1 d-block d-sm-none" href="@Model.RegionUrl">
-                <img src="/media/cirkulara_halland_logo_icon.png" width="30" height="30" class="d-inline-block align-top" alt="@Model.Translations["topbar.logotype-alt-text"]">
-                <span class="mt-1">@(string.IsNullOrEmpty(Model.Region) ? Model.Translations["topbar.header"] : Model.Region)</span>
+                <img src="/media/cirkulara-kartan-logo.png" width="30" height="30" class="d-inline-block align-top" alt="@Model.Translations["topbar.logotype-alt-text"]">
+                <!--<span class="mt-1">@(string.IsNullOrEmpty(Model.Region) ? Model.Translations["topbar.header"] : Model.Region)</span>-->
             </a>
 
             <button class="navbar-toggler"
