@@ -43,7 +43,7 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
     const mapMaxZoom: number = 18;
     const mapMinZoom: number = 5;
     const mapZoomInLevel: number = 15;
-    const mapDisableClusteringAtZoomLevel: number = 9;
+    const mapDisableClusteringAtZoomLevel: number = 7;
 
     var myPositionMarker: L.Marker;
 

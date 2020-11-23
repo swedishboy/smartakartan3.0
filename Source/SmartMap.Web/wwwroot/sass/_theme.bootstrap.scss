@@ -59,10 +59,14 @@ a {
 }
 
 // NAVBAR & MENU
+.sk-index {
+    .navbar {
+        box-shadow: 0 4px 13px rgba(0,0,0,.14);
+    }
+}
 .navbar {
     background-color: $white;
     border-bottom: $border-width solid $gray-300;
-    box-shadow: 0 4px 13px rgba(0,0,0,.14);
 
     a.navbar-brand {
         font-family: 'Lato', sans-serif;
@@ -113,6 +117,7 @@ a {
         }
     }
 }
+
 
 // CARD
 .card {

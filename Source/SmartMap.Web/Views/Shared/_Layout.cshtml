@@ -7,6 +7,9 @@
     {
         return Xsrf.GetAndStoreTokens(Context).RequestToken;
     }
+    public string GetBodyClass() {
+        return ViewData["Home"] != null ? "sk-index" : "sk-page";
+    }
 }
 <!DOCTYPE html>
 <html lang="@ViewData["languageCode"]" prefix="og: http://ogp.me/ns#">
@@ -36,7 +39,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/media/favicon-16x16.png">
     <script src="https://kit.fontawesome.com/6a2fe4641c.js" crossorigin="anonymous"></script>
 </head>
-<body>
+
+<body class="@GetBodyClass()">
     @await Component.InvokeAsync("TopBar")
     @RenderBody()
     @await Component.InvokeAsync("Footer")

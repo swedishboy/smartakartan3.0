@@ -56,9 +56,6 @@ h3.card-title {
         font-size: 17px;
         line-height: 1.8em;
     }
-    .main-img {
-        height: 18.75rem; // 300px
-    }
     h2 {
         font-family: 'Roboto Mono', monospace;
         font-size: 1.1rem;
@@ -88,16 +85,23 @@ h3.card-title {
         right: .425rem;
         z-index: 800;
     }
-
+    /*.sk-card {
+        .card-body {
+            font-family: 'Roboto Mono';
+            font-size: 14px;
+        }
+    }*/
     @media (max-width: $mobile-max-width) {
         h1, .h1 {
             font-size: 2rem;
         }
     }
+    .map-container {
+        border-bottom: 1px solid #cfcfcf;
+    }
 }
 
 .map-container {
-    border-bottom: 1px solid #cfcfcf;
     .map-element {
         height: 25.75rem; // 300px
         justify-content: "center";
@@ -157,14 +161,11 @@ h3.card-title {
 .marker-cluster-medium,
 .marker-cluster-large {
     background-color: rgba(140, 159, 226, 0.53)
-    div {
-        background-color: #60a6ff
-    }
 }
-/*.marker-cluster-small div,
+.marker-cluster-small div,
 .marker-cluster-medium div,
 .marker-cluster-large div {
-
+    background-color: #60a6ff
 }
 /*
 .marker-cluster-medium {
