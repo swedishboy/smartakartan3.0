@@ -102,7 +102,8 @@ export const Cards: FunctionComponent<ICardRequest> = (props: ICardRequest) => {
                 <div className="card h-100">
                     <div className="position-relative">
                         {c.hasImage ? (
-                            <img className="card-img-top mr-2" src={c.imageUrl} alt={c.imageAlt} />
+                            <div className="card-img-top mr-2" title={c.imageAlt} style={{backgroundImage: `url(${c.imageUrl})`}}>
+                            </div>
                         ) : (
                             <svg className="bd-placeholder-img card-img-top mr-2" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
                                 <title>Placeholder</title>
