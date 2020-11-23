@@ -196,7 +196,7 @@ const StartPage: React.FC = () => {
             markers={mapMarkers}
             viewLatLng={mapZoomLatLng}
             positionSet={positionSet} />
-        <div className="container">
+        <div className="container pt-3">
             <SearchBar
                 searchCallback={searchCallback}
                 filterTags={filterTags}

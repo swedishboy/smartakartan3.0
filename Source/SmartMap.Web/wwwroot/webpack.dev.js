@@ -2,6 +2,7 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const webpack = require('webpack')
 
 const output = {
@@ -17,6 +18,8 @@ const plugins = [
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.css'
     }),
+    // adjusting compression plugin here
+    new CompressionPlugin(),    
 ]
 
 module.exports = merge(common, {

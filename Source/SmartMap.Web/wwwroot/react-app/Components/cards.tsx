@@ -132,7 +132,7 @@ export const Cards: FunctionComponent<ICardRequest> = (props: ICardRequest) => {
                     </div>
                     <div className="card-body d-flex align-items-stretch flex-column">
                         {c.onlineOnly ? (
-                            <span className="font-weight-light"><i className="fas fa-globe"></i> {textTranslations?.digitalCardText}</span>
+                            <span className="font-weight-light"><i className="fa fa-globe"></i> {textTranslations?.digitalCardText}</span>
                         ) : (
                             c.area == null || c.area.length <= 0 ? (
                                 <span className="font-weight-light"><i className="fas fa-map-marker-alt"></i> {c.city}</span>

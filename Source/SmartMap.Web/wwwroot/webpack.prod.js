@@ -17,6 +17,7 @@ const plugins = [
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].bundle.css'
     }),
+    // adjusting compression plugin here
     new CompressionPlugin(),
 ]
 

@@ -43,7 +43,7 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
     const mapMaxZoom: number = 18;
     const mapMinZoom: number = 5;
     const mapZoomInLevel: number = 15;
-    const mapDisableClusteringAtZoomLevel: number = 14;
+    const mapDisableClusteringAtZoomLevel: number = 9;
 
     var myPositionMarker: L.Marker;
 
@@ -201,7 +201,7 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
             break;
 
             default:
-                return '/media/leaflet/clean_marker.svg';
+                return '/media/leaflet/blank_1.svg';
         }
     }
 
@@ -280,7 +280,7 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
     //var foundString = (!props.myPositionFitBound && loadingComplete);
 
     return (
-        <div className="map-container position-relative pb-3">
+        <div className="map-container position-relative">
             {/* {foundString ? (
                 <div>Visar {props.markers.length} kartpositioner</div>
             ) : (
@@ -293,7 +293,7 @@ export const Map: FunctionComponent<IMapRequest> = (props: IMapRequest) => {
             </div>
             <div className="my-position-button">
                 <button className="btn btn-primary" title={textTranslations?.yourPositionText} onClick={getLocationAndZoomInToInMap}>
-                    <i className="fas fa-crosshairs"></i>
+                    <i className="fa fa-crosshairs"></i>
                 </button>
             </div>
         </div>

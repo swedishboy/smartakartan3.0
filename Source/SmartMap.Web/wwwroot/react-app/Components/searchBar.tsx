@@ -284,7 +284,7 @@ export const SearchBar: FunctionComponent<ISearchBarInput> = (props: ISearchBarI
             />
             <div className="input-group-append">
                 <button className="btn btn-primary" type="button" id="button-search" onClick={callSearch}>
-                    <i className="fas fa-search"></i> {textTranslations?.searchButtonText}
+                    <i className="fa fa-search"></i> {textTranslations?.searchButtonText}
                 </button>
 
                 {/* data-toggle="dropdown" */}
@@ -296,7 +296,7 @@ export const SearchBar: FunctionComponent<ISearchBarInput> = (props: ISearchBarI
                     data-display="static"
                     aria-haspopup="true"
                     aria-expanded="false">
-                    <i className="fas fa-filter dont-hide"></i> {textTranslations?.filterButtonText}
+                    <i className="fa fa-filter dont-hide"></i> {textTranslations?.filterButtonText}
                 </button>
                 {/*
                 <div className="dropdown-menu dropdown-menu-right dont-hide" id="filter-menu">
