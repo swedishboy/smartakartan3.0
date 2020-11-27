@@ -25,9 +25,8 @@ namespace SmartMap.Web.Infrastructure
             var password = configuration["web-app:elastic-password"];
 
             var settings = new ConnectionSettings(new Uri(url))
-#if !DEBUG
+
                 .BasicAuthentication(username, password)
-#endif
                 .DefaultIndex(_indexName);
 
             _client = new ElasticClient(settings);

@@ -51,8 +51,8 @@ namespace SmartMap.Web.ViewComponents
             if (!string.IsNullOrEmpty(language))
                 urlList.Add(language);
 
-            if (!string.IsNullOrEmpty(region))
-                urlList.Add(region);
+            //if (!string.IsNullOrEmpty(region))
+            //    urlList.Add(region);
 
             if (urlList.Any())
                 partialUrl = string.Join("/", urlList);
