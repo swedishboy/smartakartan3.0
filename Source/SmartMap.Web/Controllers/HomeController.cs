@@ -90,7 +90,7 @@ namespace SmartMap.Web.Controllers
         private async Task<UrlViewModel> GetSiteMapXml(string host)
         {
             var model = new UrlViewModel();
-            /*
+            // from here if disabled /*
             var regions = await _regionRepository.GetAll();
 
             var languages = await _cmsApiProxy.GetLanguages();
@@ -123,7 +123,7 @@ namespace SmartMap.Web.Controllers
 
                 model.Urls.Add(new UrlViewModel.UrlItem { Url = url, LastUpdated = lastUpdated });
             }
-            */
+            // to here if disabled */
             return model;
         }
 
